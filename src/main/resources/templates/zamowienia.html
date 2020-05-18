@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Foodie Page</title>
+
+    <meta name="author" content="Michał Basiński">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="foodie">
+    <meta name="description" content="foodie, zamow-jedzenie">
+
+    <link href="../static/css/main.css" type="text/css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="container">
+
+        <nav class="main-nav">
+
+            <article class="menu-bar">
+                <section><a th:href="@{/}">Strona główna</a></section>
+                <section><a th:href="@{/zamowienie}">Zamówienie</a></section>
+                <section><a th:href="@{/panel/zamowienia}">Panel</a></section>
+            </article>
+
+            <article id="slider">
+                <img src="/img/image/0.jpg" alt="picture">
+            </article>
+
+        </nav>
+
+        <main>
+
+            <article class="content">
+
+                <nav>
+
+                    <form th:action="@{/panel/zamowienia/status}" th:method="post">
+                        <button class="b1" th:value="NEW" th:name="status">Nowe</button>
+                        <button class="b2" th:value="IN_PROGRESS" th:name="status">W trakcie</button>
+                        <button class="b3" th:value="COMPLETE" th:name="status">Zrealizowane</button>
+                    </form>
+
+                </nav>
+
+                <article class="column-four">
+
+                    <section>
+
+                        <table>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Adres</th>
+                                <th>Telefon</th>
+                                <th>Status</th>
+                                <th>Edycja</th>
+                            </tr>
+
+                            <tr th:if="${orders} != null" th:each="order : ${orders}" th:object="${order}">
+                                <td th:text="*{id}">id zamówienia</td>
+                                <td th:text="*{address}">Telefoniczna 23A, 91-728 Łódź</td>
+                                <td th:text="*{telephone}">531489456</td>
+                                <td th:text="*{status}">STATUS</td>
+                                <td>
+                                    <form th:action="@{/panel/zamowienia/edytuj}">
+                                        <button th:value="*{id}" th:name="id">Edytuj</button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </section>
+
+                </article>
+
+            </article>
+
+        </main>
+
+        <footer>Michał Basiński 2020 &copy;</footer>
+
+    </div>
+</body>
+</html>

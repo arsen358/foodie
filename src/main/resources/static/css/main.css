@@ -1,0 +1,281 @@
+html, body{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    counter-reset: section;
+    height:auto !important;
+    width: 100%;
+    background-image: url("../img/background-template.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+    margin: 0;
+}
+
+#container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-nav{
+    width: 1000px;
+    height: 450px;
+    margin: 10px auto;
+}
+
+.menu-bar{
+    width: 600px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+}
+
+.menu-bar > section{
+    float: left;
+    width: 198px;
+    height: 26px;
+    margin-left: 0;
+    padding-top: 4px;
+    text-align: center;
+    text-decoration: none;
+    color: #9c9a9a;
+    border-right: 2px solid #9c9a9a;
+    letter-spacing: 1px;
+}
+
+.menu-bar > section:last-child{
+    border-right: none;
+}
+
+.menu-bar > section > a{
+    text-decoration: none;
+    color: #bbb;
+}
+
+.menu-bar > section:hover > a{
+    text-decoration: none;
+    color: #62ac57;
+}
+
+.menu-bar section:hover{
+    color: #fff;
+    cursor: pointer;
+}
+
+#slider{
+    width: inherit;
+    height: 410px;
+    border-radius: 15px;
+}
+
+#slider img{
+    width: inherit;
+    height: inherit;
+    border-radius: 15px;
+}
+
+main{
+    width: 1000px;
+    margin: 10px auto;
+    background-size: inherit;
+}
+
+.content{
+    overflow: hidden;
+}
+
+.column-one{
+    height: auto;
+    float: left;
+    width: 18%;
+    margin: 5px 0;
+}
+
+.column-two{
+    height: auto;
+    float: left;
+    width: 82%;
+    margin: 5px 0;
+}
+
+section.icon{
+    color: #596164;
+}
+
+section.name{
+    height: 50px;
+    color: #596164;
+    font-size: 35px;
+}
+
+section.name > a{
+    text-decoration: none;
+    color: #596164;
+}
+
+section.name > a:hover{
+    text-decoration: none;
+    color: #62ac57;
+    cursor: pointer;
+}
+
+section.short-description{
+    min-height: 35px;
+    color: #596164;
+    font-weight: 600;
+}
+
+section > form > button{
+    height: 25px;
+    color: #d6e8f4;
+    background-color: #3a5f79;
+}
+
+section > form > button:hover{
+    color: #b4c6d2;
+    background-color: #294e68;
+    cursor: pointer;
+}
+
+footer{
+    clear: both;
+    width: 1000px !important;
+    height: 25px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px 0;
+    color: #596164;
+}
+
+/*zamowienie.html*/
+
+.column-three{
+    margin-left: 375px;
+    margin-right: 350px;
+    color: #596164;
+    font-weight: 600;
+}
+
+.column-three > section > table{
+    width: 275px;
+    text-align: center;
+}
+
+.column-three > section.sum{
+    text-align: right;
+    font-weight: bold;
+}
+
+ol{
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+li{
+    list-style-type: none;
+}
+
+li:before{
+    counter-increment: section;
+    content: counter(section);
+}
+
+.column-three > article > form > article > section > label > input{
+    width: 273px;
+}
+
+.column-three > article > form > article > section > label > textarea{
+    width: 273px;
+    min-height: 100px;
+    resize: none;
+}
+
+.column-three > article > form > section > button{
+    height: 25px;
+    color: #d6e8f4;
+    background-color: #3a5f79;
+}
+
+.column-three > article > form > section > button:hover{
+    color: #b4c6d2;
+    background-color: #294e68;
+    cursor: pointer;
+}
+
+/*message.html*/
+h1{
+    color: #596164;
+    text-align: center;
+}
+
+/*zamowienia.html*/
+.column-four{
+    width: 60%;
+    color: #596164;
+    font-weight: 600;
+    margin-left: 200px;
+}
+
+.column-four > section > table{
+    width: 600px;
+    text-align: center;
+}
+
+.column-four > section > table > tbody > tr > td > form > button{
+    height: 25px;
+    color: #d6e8f4;
+    background-color: #3a5f79;
+}
+
+.column-four > section > table > tbody > tr > td > form > button:hover{
+    color: #b4c6d2;
+    background-color: #294e68;
+    cursor: pointer;
+}
+
+.content > nav{
+    width: 600px;
+    margin-left: 200px;
+    text-align: center;
+}
+
+.content > nav > form > button.b1{
+    width: 100px;
+    background-color: #62ac57;
+}
+
+.content > nav > form > button.b1:hover{
+    width: 100px;
+    background-color: #519b46;
+    cursor: pointer;
+}
+
+.content > nav > form > button.b2{
+    width: 100px;
+    background-color: #fff;
+}
+
+.content > nav > form > button.b2:hover{
+    width: 100px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.content > nav > form > button.b3{
+    width: 100px;
+    background-color: #ff4d4d;;
+}
+
+.content > nav > form > button.b3:hover{
+    width: 100px;
+    background-color: #ee3c3c;
+    cursor: pointer;
+}
+
+/*edit*/
+
+

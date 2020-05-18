@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Foodie Page</title>
+
+    <meta name="author" content="Michał Basiński">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="foodie">
+    <meta name="description" content="foodie, zamow-jedzenie">
+
+    <link href="../static/css/main.css" type="text/css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="container" th:object="${item}">
+
+    <nav class="main-nav">
+
+        <article class="menu-bar">
+            <section><a th:href="@{/}">Strona główna</a></section>
+            <section><a th:href="@{/zamowienie}">Zamówienie</a></section>
+            <section><a th:href="@{/panel}">Panel</a></section>
+        </article>
+
+        <article id="slider">
+            <img src="#" th:src="*{imgAddress}" alt="picture">
+        </article>
+
+    </nav>
+
+    <main>
+
+        <article class="content">
+
+            <article class="column-one"><section class="icon"><i class="icon-food"></i></section></article>
+
+            <article class="column-two">
+
+                <section class="name">
+                    <a th:text="|${item.name} (${item.price}zł)|">
+                        Pizza Margaritta</a>
+                </section>
+
+                <section class="short-description">
+                    <p th:text="${item.description}">Krótki opis pizzy, pysznej klasyki na cienkim cieście i z</p>
+                </section>
+
+                <section class="button">
+                    <form action="#" th:action="@{/zamowienie/dodaj}" th:object="${item}" method="post">
+                        <button th:value="${item.id}" th:name="itemId">Dodaj do koszyka</button>
+                    </form>
+                </section>
+
+            </article>
+
+        </article>
+
+    </main>
+
+    <footer>Michał Basiński 2020 &copy;</footer>
+
+</div>
+</body>
+</html>

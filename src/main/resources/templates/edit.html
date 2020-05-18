@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Foodie Page</title>
+
+    <meta name="author" content="Michał Basiński">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="foodie">
+    <meta name="description" content="foodie, zamow-jedzenie">
+
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="container">
+
+    <nav class="main-nav">
+
+        <article class="menu-bar">
+            <section><a th:href="@{/}">Strona główna</a></section>
+            <section><a th:href="@{/zamowienie}">Zamówienie</a></section>
+            <section><a th:href="@{/panel/zamowienia}">Panel</a></section>
+        </article>
+
+        <article id="slider">
+            <img src="/img/image/0.jpg" alt="picture">
+        </article>
+
+    </nav>
+
+    <main>
+
+        <article class="content">
+
+            <article class="column-four">
+
+                <section>
+
+                    <table>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Produkty</th>
+                            <th>Adres</th>
+                            <th>Telefon</th>
+                            <th>Status</th>
+                            <th>Edycja</th>
+                        </tr>
+
+                        <tr th:if="${order} != null" th:object="${order}">
+                            <td th:text="*{id}">id</td>
+                            <td>
+                                <table>
+                                    <tr th:each="item : ${order.items}">
+                                        <td th:text="${item.name}">nazwa produktu</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td th:text="*{address}">Telefoniczna 23A, 91-728 Łódź</td>
+                            <td th:text="*{telephone}">531489456</td>
+                            <td th:text="*{status}">STATUS</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><label><input type="radio" th:value></label></td>
+                            <td><label><input placeholder="edytuj"></label></td>
+                            <td><label><input placeholder="edytuj"></label></td>
+                            <td><label><input placeholder="edytuj"></label></td>
+                            <td><button th:action="@{/panel/zamowienia/edytuj}">Zapisz</button></td>
+                        </tr>
+
+                    </table>
+
+                </section>
+
+            </article>
+
+        </article>
+
+    </main>
+
+    <footer>Michał Basiński 2020 &copy;</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Foodie Page</title>
+
+    <meta name="author" content="Michał Basiński">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="foodie">
+    <meta name="description" content="foodie, zamow-jedzenie">
+
+    <link href="../static/css/main.css" type="text/css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="container">
+
+    <nav class="main-nav">
+
+        <article class="menu-bar">
+            <section><a th:href="@{/}">Strona główna</a></section>
+            <section><a th:href="@{/zamowienie}">Zamówienie</a></section>
+            <section><a th:href="@{/panel}">Panel</a></section>
+        </article>
+
+        <article id="slider">
+            <img src="/img/image/0.jpg" alt="picture">
+        </article>
+
+    </nav>
+
+    <main>
+
+        <article class="content">
+
+            <article class="column-three">
+
+                <section>
+
+                    <table>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Nazwa</th>
+                            <th>Cena</th>
+                        </tr>
+
+                        <tr th:if="${items} != null" th:each="item : ${items}" th:object="${item}">
+                            <td>
+                                <ol>
+                                    <li></li>
+                                </ol>
+                            </td>
+                            <td th:text="*{name}">Pizza Margaritta</td>
+                            <td th:text="|*{price}zł|">25.90zł</td>
+                        </tr>
+
+                    </table>
+
+                </section>
+
+                <section class="sum" th:if="${items} != null" th:text="|Do zapłaty: ${suma}zł|">Do zapłaty: 25.90zł</section>
+
+                <article th:if="${items} != null">
+
+                    <form th:action="@{/zamowienie/realizuj}" method="post" th:object="${order}">
+                        <article>
+                            <section>Adres:</section>
+                            <section><label><input th:type="text" placeholder="address" th:field="*{address}"></label></section>
+                        </article>
+
+                        <article>
+                            <section>Numer telefonu:</section>
+                            <section><label><input th:type="text" placeholder="phone number" th:field="*{telephone}"></label></section>
+                        </article>
+
+                        <article>
+                            <section>Uwagi:</section>
+                            <section><label><textarea th:type="text" placeholder="comment" th:field="*{comment}"></textarea></label></section>
+                        </article>
+
+                        <section><button>Zamów</button></section>
+                    </form>
+
+                </article>
+
+            </article>
+
+        </article>
+
+    </main>
+    <footer>Michał Basiński 2020 &copy;</footer>
+
+</div>
+</body>
+</html>
